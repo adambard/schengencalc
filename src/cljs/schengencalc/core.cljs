@@ -42,7 +42,6 @@
 ;; Date Calculations
 
 (defn duration [{exit :exit entry :entry :as in}]
-  ;(js/console.log exit entry in  (clj->js in))
   (-> (js/moment exit) 
       (.diff (js/moment entry))
       (js/moment.duration)
@@ -53,8 +52,8 @@
 (defn days-used [deadline upcoming-stays]
   (reduce + 0 (for [{:keys [entry exit] :as upcoming} upcoming-stays]
          (cond
-           (< deadline entry) 0
-           (< deadline exit) (duration {:entry entry :exit deadline})
+           (.isBefore deadline entry) 0
+           (.isBefore deadline exit) (duration {:entry entry :exit deadline})
            :otherwise (duration upcoming)))))
 
 (defn days-left [deadline upcoming-stays]
