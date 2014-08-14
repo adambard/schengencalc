@@ -1,9 +1,10 @@
 (ns schengencalc.core
   (:require
     [om.core :as om :include-macros true]
-    [kioo.om :as kioo :include-macros true])
-  (:require-macros
-    [schengencalc.macros :refer [bind-input]]))
+    [om.dom :as dom :include-macros true]
+    [kioo.om :as kioo :include-macros true]
+    )
+  )
 
 ;; localStorage persistence
 
@@ -46,6 +47,7 @@
       (.diff (js/moment entry))
       (js/moment.duration)
       (.asDays)
+      (js/Math.round)
       (inc)
       ))
 
@@ -81,6 +83,24 @@
       :otherwise (apply conj [initial] (reverse other-dates)))))
 
 
+;; Input component
+
+(defn date-input [stay-key]
+  (fn [stay owner]
+    (reify
+      om/IDidMount
+      (did-mount [_]
+        (->> (om/get-node owner)
+             (js-obj "onSelect" #(this-as t (om/update! stay stay-key (.getMoment t)))
+                     "format" "YYYY-MM-DD"
+                     "minDate" (js/Date. 2009 0 1)
+                     "field")
+             (js/Pikaday.)
+             ;(.glDatePicker)
+             ))
+      om/IRender
+      (render [_]
+        (dom/input #js {:value (.format (js/moment (get stay stay-key)) "YYYY-MM-DD")})))))
 
 ;; Templates
 
@@ -88,13 +108,8 @@
 (kioo/defsnippet date-row "index.html" [:.date-row]
   [{:keys [entry exit] :as rowdata} travel-dates]
   {[:.duration] (kioo/content (str (duration rowdata) " days"))
-   [:input.entry] (kioo/do->
-
-                   (kioo/set-attr :value (fmt-date-iso entry))
-                    (bind-input kioo/listen om/transact! rowdata :entry))
-   [:input.exit] (kioo/do->
-                   (kioo/set-attr :value (fmt-date-iso exit))
-                   (bind-input kioo/listen om/transact! rowdata :exit))
+   [:input.entry] (kioo/substitute (om/build (date-input :entry) rowdata))
+   [:input.exit] (kioo/substitute (om/build (date-input :exit) rowdata))
    [:a] (kioo/listen :on-click
                      (fn [e]
                        (.preventDefault e)
@@ -116,7 +131,7 @@
   {[:tbody.travel-dates] (kioo/content (map #(date-row % travel-dates) travel-dates))
    [:.add-stay :a] (kioo/listen :on-click (fn [e]
                                        (.preventDefault e)
-                                       (om/transact! travel-dates #(conj % {}))))
+                                       (om/transact! travel-dates #(conj % {:entry (js/moment) :exit (js/moment)}))))
    [:ul.results] (kioo/content (map result-item (re-entry-dates travel-dates)))
    [:.disclaimer] (if (every? #(>= (:days-left %) 0) (re-entry-dates travel-dates))
                     (kioo/do->
@@ -133,5 +148,6 @@
 (defn app [data owner]
   (store "schengencalc" data) ; Persist data
   (om/component (main data)))
+
 
 (om/root app app-state {:target (.-body js/document)})

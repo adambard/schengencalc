@@ -46,25 +46,25 @@ header p{
   width: 728px;
 }
 
-table{
+.entry-table{
   width: 100%;
   border-collapse: collapse;
   margin-top: 26px;
 }
-table th{
+.entry-table th{
   text-align: left;
   background: #f90;
   color: #fff;
 }
 
-table th, table td{
+.entry-table th, .entry-table td{
   padding: 5px;
 }
-table tr:nth-child(2n) td{
+.entry-table tr:nth-child(2n) td{
   background: #eee;
 }
 
-table td input{
+.entry-table td input{
   font-family: inherit;
   font-size: inherit;
   border: 2px solid #ddd;
