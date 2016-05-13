@@ -3,6 +3,7 @@
     [om.core :as om :include-macros true]
     [om.dom :as dom :include-macros true]
     [kioo.om :as kioo :include-macros true]
+    [schengencalc.dates :refer [re-entry-dates]]
     )
   )
 
@@ -39,49 +40,6 @@
 
 (defn fmt-date-iso [d]
   (.format (js/moment d) "YYYY-MM-DD"))
-
-;; Date Calculations
-
-(defn duration [{exit :exit entry :entry :as in}]
-  (-> (js/moment exit) 
-      (.diff (js/moment entry))
-      (js/moment.duration)
-      (.asDays)
-      (js/Math.round)
-      (inc)
-      ))
-
-(defn days-used [deadline upcoming-stays]
-  (reduce + 0 (for [{:keys [entry exit] :as upcoming} upcoming-stays]
-         (cond
-           (.isBefore deadline entry) 0
-           (.isBefore deadline exit) (duration {:entry entry :exit deadline})
-           :otherwise (duration upcoming)))))
-
-(defn days-left [deadline upcoming-stays]
-    (- 90 (days-used deadline upcoming-stays)))
-
-(defn calc-days-left-and-deadline [upcoming-stays date]
-  (let [deadline (.add (js/moment date) "days" 180)]
-    {:from-date date
-     :days-left (days-left deadline upcoming-stays)
-     :return-date deadline}))
-
-(defn update-re-dates [upcoming-stays {exit :exit :as stay}]
-  (conj upcoming-stays
-        (merge stay (calc-days-left-and-deadline upcoming-stays exit))))
-
-(defn re-entry-dates [travel-dates]
-  (let [initial (calc-days-left-and-deadline
-                  travel-dates
-                  (:entry (first travel-dates)))
-        other-dates (filter #(not (= (:days-left %) 90))
-                            (reduce update-re-dates [] (reverse travel-dates)))]
-    (cond
-      (empty? travel-dates) []
-      (empty? other-dates) [initial]
-      :otherwise (apply conj [initial] (reverse other-dates)))))
-
 
 ;; Input component
 
@@ -120,10 +78,10 @@
                                               %)))))})
 
 (kioo/defsnippet result-item "index.html" [:li.stay-tpl]
-  [{:keys [days-left return-date from-date]}]
-  {[:.return-date] (kioo/content (fmt-date return-date))
-   [:.days-left] (kioo/content days-left)
-   [:.deadline] (kioo/content (fmt-date from-date))
+  [{:keys [days-used start-date end-date]}]
+  {[:.start] (kioo/content (fmt-date start-date))
+   [:.end] (kioo/content (fmt-date end-date))
+   [:.days-used] (kioo/content days-used)
    })
 
 (kioo/deftemplate main "index.html"
@@ -132,7 +90,9 @@
    [:.add-stay :a] (kioo/listen :on-click (fn [e]
                                        (.preventDefault e)
                                        (om/transact! travel-dates #(conj % {:entry (js/moment) :exit (js/moment)}))))
-   [:ul.results] (kioo/content (map result-item (re-entry-dates travel-dates)))
+   [:ul.results] (kioo/content (->> (re-entry-dates travel-dates)
+                                    (filter #(< (:days-left %) 0))
+                                    (map result-item)) )
    [:.disclaimer] (if (every? #(>= (:days-left %) 0) (re-entry-dates travel-dates))
                     (kioo/do->
                       (kioo/set-class "disclaimer ok")

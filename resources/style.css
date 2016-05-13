@@ -85,7 +85,7 @@ header p{
   text-align: right;
 }
 
-span.return-date, span.days-left{
+span.start, span.end, span.days-used{
   font-weight: bold;
   border-bottom: 1px solid;
 }
