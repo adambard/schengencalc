@@ -33,4 +33,8 @@
   (cljs-repl)
   (copy :output-dir "target" :matching #{#"resources/*"})
   (cljs :source-map true :optimizations :none)))
-)
+
+(deftask build []
+  (comp
+    (copy :output-dir "target" :matching #{#"resource/*"})
+    (cljs :optimizations :whitespace)))

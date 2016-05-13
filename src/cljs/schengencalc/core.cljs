@@ -3,7 +3,7 @@
     [om.core :as om :include-macros true]
     [om.dom :as dom :include-macros true]
     [kioo.om :as kioo :include-macros true]
-    [schengencalc.dates :refer [re-entry-dates]]
+    [schengencalc.dates :refer [re-entry-dates duration]]
     )
   )
 
@@ -65,7 +65,9 @@
 
 (kioo/defsnippet date-row "index.html" [:.date-row]
   [{:keys [entry exit] :as rowdata} travel-dates]
-  {[:.duration] (kioo/content (str (duration rowdata) " days"))
+  {[:.duration] (kioo/content (str (duration
+                                    (js/moment (:exit  rowdata))
+                                    (js/moment (:entry rowdata))) " days"))
    [:input.entry] (kioo/substitute (om/build (date-input :entry) rowdata))
    [:input.exit] (kioo/substitute (om/build (date-input :exit) rowdata))
    [:a] (kioo/listen :on-click
