@@ -1,0 +1,1 @@
+([:dependencies ([org.clojure/clojure "1.6.0"] [org.clojure/clojurescript "0.0-2277"] [kioo/kioo "0.4.0"] [om/om "0.7.1"] [org.clojure/tools.nrepl "0.2.6" :exclusions ([org.clojure/clojure]) :scope "test"] [clojure-complete/clojure-complete "0.2.3" :exclusions ([org.clojure/clojure]) :scope "test"])])
