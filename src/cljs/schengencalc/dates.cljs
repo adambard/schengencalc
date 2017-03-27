@@ -18,8 +18,8 @@
 (defn- relevant-periods [travel-dates]
   (mapcat
     (fn [{entry :entry exit :exit}]
-      [{:start entry :end (add-days entry 180)}
-       {:start exit :end (add-days exit 180)}])
+      [{:start entry :end (add-days entry 179)}
+       {:start exit :end (add-days exit 179)}])
     travel-dates))
 
 (defn- clean-travel-dates [travel-dates]
