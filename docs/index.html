@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>Schengen Zone Calculator</title>
+        <link rel="stylesheet" type"text/css" href="style.css">
+        <link rel="stylesheet" media="screen" type="text/css" href="lib/pikaday.css" />
+    </head>
+    <body>
+
+      <div class="container">
+        <header>
+          <h1>Schengen calculator</h1>
+          <h2>For Visa-Free visitors</h2>
+        <p>You may stay in the Schengen area for no more than 90 days in any 180 day period. Simple, right? Well I guess you don't need this calculator at all then.</p>
+        </header>
+        <main>
+          <p><strong>Enter your stays in the Schengen area below, in chronological order.</strong></p>
+          <table class="entry-table">
+            <thead>
+              <tr>
+                <th>Entry</th>
+                <th>Exit</th>
+                <th>Duration</th>
+                <th></th>
+              </tr>
+            </thead>
+              <tbody class="travel-dates">
+                <tr class="date-row">
+                  <td>
+                      <input type="date" class="entry">
+                  </td>
+                  <td>
+                      <input type="date" class="exit">
+                  </td>
+                  <td class="duration">
+                      76 days
+                  </td>
+                  <td class="dissoc">
+                    <a><i class="fi-x"></i></a>
+                  </td>
+                </tr>
+              </tbody>
+          </table>
+
+          <div class="add-stay">
+            <a><i class="fi-plus"></i> Add a stay</a>
+          </div>
+
+          <div class="results-area">
+            <h2>Results</h2>
+            <p class="disclaimer"></p>
+            <ul class="results">
+                <li class="stay-tpl">
+                  Between <span class="start">August 12, 2014</span>
+                  and <span class="end">December 14, 2014</span>, you will stay for
+                  <span class="days-used"> 30</span> days.
+                </li>
+            </ul>
+            <p>Disclaimer: Results are not guaranteed and the proprieter of
+            this site disavows all responsability for anything that may
+            or may not happen to you. Remember to
+            double-check these dates!
+            </p>
+          </div><!-- .results-area -->
+
+        </main>
+
+        <footer>
+          <p>Made by <a href="http://adambard.com/">Exceedingly handsome web developer Adam Bard</a></p>
+        </footer>
+
+        <!-- scripts -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.9.0/react.js"></script>
+        <script type="text/javascript" src="lib/pikaday.js"></script>
+        <script src="main.js"></script>
+    </div>
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-3525624-31', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>

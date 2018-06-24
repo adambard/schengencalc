@@ -37,4 +37,7 @@
 (deftask build []
   (comp
     (copy :output-dir "target" :matching #{#"resource/*"})
-    (cljs :optimizations :whitespace)))
+    (cljs :optimizations :whitespace)
+    (target :dir #{"docs"})
+    
+    ))
