@@ -1,13 +1,13 @@
 (set-env!
   :resource-paths #{"resources"}
   :source-paths #{"src/cljs"}
-  :dependencies '[[cpmcdaniel/boot-copy "1.0" :scope "provided"]
+  :dependencies '[[org.clojure/clojure "1.8.0"]
+                  [cpmcdaniel/boot-copy "1.0" :scope "provided"]
                   [adzerk/boot-cljs "1.7.170-3" :scope "test"]
                   [adzerk/boot-cljs-repl "0.3.0" :scope "test"]
-                  [adzerk/boot-reload    "0.3.1"      :scope "test"]
+                  [adzerk/boot-reload    "0.5.2"      :scope "test"]
                   [pandeiro/boot-http    "0.7.2"      :scope "test"]
 
-                  [org.clojure/clojure "1.7.0"]
                   [org.clojure/clojurescript "1.7.170" :scope "test"]
 
                   ; Cljs

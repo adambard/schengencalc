@@ -58,7 +58,8 @@
              ))
       om/IRender
       (render [_]
-        (dom/input #js {:value (.format (js/moment (get stay stay-key)) "YYYY-MM-DD")})))))
+        (let [date (js/moment (get stay stay-key))]
+          (dom/input #js {:value (.format date "YYYY-MM-DD")}))))))
 
 ;; Templates
 
@@ -86,12 +87,17 @@
    [:.days-used] (kioo/content days-used)
    })
 
+(defn- init-travel-dates []
+  {:entry (.startOf (js/moment) "day")
+   :exit (.startOf (js/moment) "day") })
+
 (kioo/deftemplate main "index.html"
   [{travel-dates :travel-dates}]
   {[:tbody.travel-dates] (kioo/content (map #(date-row % travel-dates) travel-dates))
-   [:.add-stay :a] (kioo/listen :on-click (fn [e]
-                                       (.preventDefault e)
-                                       (om/transact! travel-dates #(conj % {:entry (js/moment) :exit (js/moment)}))))
+   [:.add-stay :a] (kioo/listen :on-click
+                                (fn [e]
+                                  (.preventDefault e)
+                                  (om/transact! travel-dates #(conj % (init-travel-dates)))))
    [:ul.results] (kioo/content (->> (re-entry-dates travel-dates)
                                     (filter #(< (:days-left %) 0))
                                     (map result-item)) )
