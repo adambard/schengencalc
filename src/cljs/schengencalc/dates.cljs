@@ -5,8 +5,13 @@
   x)
 
 
+(defn- to-date [s]
+  (-> (js/moment s)
+      (.startOf "day")))
+
+
 (defn- add-days [d num-days]
-  (.add (js/moment d) "days" num-days))
+  (.add (to-date d) "days" num-days))
 
 (defn- min-date [d1 d2]
   (if (.isBefore d1 d2) d1 d2))
@@ -25,8 +30,8 @@
 (defn- clean-travel-dates [travel-dates]
   (for [{entry :entry
          exit :exit :as d} travel-dates]
-    (assoc d :entry (js/moment entry)
-           :exit (js/moment exit))))
+    (assoc d :entry (to-date entry)
+           :exit (to-date exit))))
 
 (defn- positive-or-zero [n]
   (if (> n 0) n 0))

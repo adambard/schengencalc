@@ -3,7 +3,7 @@
     [om.core :as om :include-macros true]
     [om.dom :as dom :include-macros true]
     [kioo.om :as kioo :include-macros true]
-    [schengencalc.dates :refer [re-entry-dates duration]]
+    [schengencalc.dates :refer [to-date re-entry-dates duration]]
     )
   )
 
@@ -36,10 +36,10 @@
       default)))
 
 (defn fmt-date [d]
-  (.format (js/moment d) "MMMM Do, YYYY"))
+  (.format (to-date d) "MMMM Do, YYYY"))
 
 (defn fmt-date-iso [d]
-  (.format (js/moment d) "YYYY-MM-DD"))
+  (.format (to-date d) "YYYY-MM-DD"))
 
 ;; Input component
 
@@ -58,7 +58,7 @@
              ))
       om/IRender
       (render [_]
-        (let [date (js/moment (get stay stay-key))]
+        (let [date (to-date (get stay stay-key))]
           (dom/input #js {:value (.format date "YYYY-MM-DD")}))))))
 
 ;; Templates
@@ -67,8 +67,8 @@
 (kioo/defsnippet date-row "index.html" [:.date-row]
   [{:keys [entry exit] :as rowdata} travel-dates]
   {[:.duration] (kioo/content (str (duration
-                                    (js/moment (:exit  rowdata))
-                                    (js/moment (:entry rowdata))) " days"))
+                                    (to-date (:exit  rowdata))
+                                    (to-date (:entry rowdata))) " days"))
    [:input.entry] (kioo/substitute (om/build (date-input :entry) rowdata))
    [:input.exit] (kioo/substitute (om/build (date-input :exit) rowdata))
    [:a] (kioo/listen :on-click
