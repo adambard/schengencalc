@@ -42,7 +42,7 @@
       (.diff period-start)
       (js/moment.duration)
       (.asDays)
-      (js/Math.floor)
+      (js/Math.round)
       (inc)
       (positive-or-zero)
       ))

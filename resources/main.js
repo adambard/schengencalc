@@ -33901,39 +33901,39 @@ schengencalc.dates.max_date = function max_date(d1, d2) {
   }
 };
 schengencalc.dates.relevant_periods = function relevant_periods(travel_dates) {
-  return cljs.core.mapcat.call(null, function(p__7584) {
-    var map__7585 = p__7584;
-    var map__7585__$1 = cljs.core.seq_QMARK_.call(null, map__7585) ? cljs.core.apply.call(null, cljs.core.hash_map, map__7585) : map__7585;
-    var entry = cljs.core.get.call(null, map__7585__$1, new cljs.core.Keyword(null, "entry", "entry", 505168823));
-    var exit = cljs.core.get.call(null, map__7585__$1, new cljs.core.Keyword(null, "exit", "exit", 351849638));
+  return cljs.core.mapcat.call(null, function(p__9420) {
+    var map__9421 = p__9420;
+    var map__9421__$1 = cljs.core.seq_QMARK_.call(null, map__9421) ? cljs.core.apply.call(null, cljs.core.hash_map, map__9421) : map__9421;
+    var entry = cljs.core.get.call(null, map__9421__$1, new cljs.core.Keyword(null, "entry", "entry", 505168823));
+    var exit = cljs.core.get.call(null, map__9421__$1, new cljs.core.Keyword(null, "exit", "exit", 351849638));
     return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "start", "start", -355208981), entry, new cljs.core.Keyword(null, "end", "end", -268185958), schengencalc.dates.add_days.call(null, entry, 179)], null), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "start", "start", -355208981), exit, new cljs.core.Keyword(null, "end", "end", -268185958), schengencalc.dates.add_days.call(null, 
     exit, 179)], null)], null);
   }, travel_dates);
 };
 schengencalc.dates.clean_travel_dates = function clean_travel_dates(travel_dates) {
-  var iter__4268__auto__ = function iter__7594(s__7595) {
+  var iter__4268__auto__ = function iter__9430(s__9431) {
     return new cljs.core.LazySeq(null, function() {
-      var s__7595__$1 = s__7595;
+      var s__9431__$1 = s__9431;
       while (true) {
-        var temp__4126__auto__ = cljs.core.seq.call(null, s__7595__$1);
+        var temp__4126__auto__ = cljs.core.seq.call(null, s__9431__$1);
         if (temp__4126__auto__) {
-          var s__7595__$2 = temp__4126__auto__;
-          if (cljs.core.chunked_seq_QMARK_.call(null, s__7595__$2)) {
-            var c__4266__auto__ = cljs.core.chunk_first.call(null, s__7595__$2);
+          var s__9431__$2 = temp__4126__auto__;
+          if (cljs.core.chunked_seq_QMARK_.call(null, s__9431__$2)) {
+            var c__4266__auto__ = cljs.core.chunk_first.call(null, s__9431__$2);
             var size__4267__auto__ = cljs.core.count.call(null, c__4266__auto__);
-            var b__7597 = cljs.core.chunk_buffer.call(null, size__4267__auto__);
+            var b__9433 = cljs.core.chunk_buffer.call(null, size__4267__auto__);
             if (function() {
-              var i__7596 = 0;
+              var i__9432 = 0;
               while (true) {
-                if (i__7596 < size__4267__auto__) {
-                  var map__7600 = cljs.core._nth.call(null, c__4266__auto__, i__7596);
-                  var map__7600__$1 = cljs.core.seq_QMARK_.call(null, map__7600) ? cljs.core.apply.call(null, cljs.core.hash_map, map__7600) : map__7600;
-                  var d = map__7600__$1;
-                  var entry = cljs.core.get.call(null, map__7600__$1, new cljs.core.Keyword(null, "entry", "entry", 505168823));
-                  var exit = cljs.core.get.call(null, map__7600__$1, new cljs.core.Keyword(null, "exit", "exit", 351849638));
-                  cljs.core.chunk_append.call(null, b__7597, cljs.core.assoc.call(null, d, new cljs.core.Keyword(null, "entry", "entry", 505168823), schengencalc.dates.to_date.call(null, entry), new cljs.core.Keyword(null, "exit", "exit", 351849638), schengencalc.dates.to_date.call(null, exit)));
-                  var G__7602 = i__7596 + 1;
-                  i__7596 = G__7602;
+                if (i__9432 < size__4267__auto__) {
+                  var map__9436 = cljs.core._nth.call(null, c__4266__auto__, i__9432);
+                  var map__9436__$1 = cljs.core.seq_QMARK_.call(null, map__9436) ? cljs.core.apply.call(null, cljs.core.hash_map, map__9436) : map__9436;
+                  var d = map__9436__$1;
+                  var entry = cljs.core.get.call(null, map__9436__$1, new cljs.core.Keyword(null, "entry", "entry", 505168823));
+                  var exit = cljs.core.get.call(null, map__9436__$1, new cljs.core.Keyword(null, "exit", "exit", 351849638));
+                  cljs.core.chunk_append.call(null, b__9433, cljs.core.assoc.call(null, d, new cljs.core.Keyword(null, "entry", "entry", 505168823), schengencalc.dates.to_date.call(null, entry), new cljs.core.Keyword(null, "exit", "exit", 351849638), schengencalc.dates.to_date.call(null, exit)));
+                  var G__9438 = i__9432 + 1;
+                  i__9432 = G__9438;
                   continue;
                 } else {
                   return true;
@@ -33941,17 +33941,17 @@ schengencalc.dates.clean_travel_dates = function clean_travel_dates(travel_dates
                 break;
               }
             }()) {
-              return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__7597), iter__7594.call(null, cljs.core.chunk_rest.call(null, s__7595__$2)));
+              return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__9433), iter__9430.call(null, cljs.core.chunk_rest.call(null, s__9431__$2)));
             } else {
-              return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__7597), null);
+              return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__9433), null);
             }
           } else {
-            var map__7601 = cljs.core.first.call(null, s__7595__$2);
-            var map__7601__$1 = cljs.core.seq_QMARK_.call(null, map__7601) ? cljs.core.apply.call(null, cljs.core.hash_map, map__7601) : map__7601;
-            var d = map__7601__$1;
-            var entry = cljs.core.get.call(null, map__7601__$1, new cljs.core.Keyword(null, "entry", "entry", 505168823));
-            var exit = cljs.core.get.call(null, map__7601__$1, new cljs.core.Keyword(null, "exit", "exit", 351849638));
-            return cljs.core.cons.call(null, cljs.core.assoc.call(null, d, new cljs.core.Keyword(null, "entry", "entry", 505168823), schengencalc.dates.to_date.call(null, entry), new cljs.core.Keyword(null, "exit", "exit", 351849638), schengencalc.dates.to_date.call(null, exit)), iter__7594.call(null, cljs.core.rest.call(null, s__7595__$2)));
+            var map__9437 = cljs.core.first.call(null, s__9431__$2);
+            var map__9437__$1 = cljs.core.seq_QMARK_.call(null, map__9437) ? cljs.core.apply.call(null, cljs.core.hash_map, map__9437) : map__9437;
+            var d = map__9437__$1;
+            var entry = cljs.core.get.call(null, map__9437__$1, new cljs.core.Keyword(null, "entry", "entry", 505168823));
+            var exit = cljs.core.get.call(null, map__9437__$1, new cljs.core.Keyword(null, "exit", "exit", 351849638));
+            return cljs.core.cons.call(null, cljs.core.assoc.call(null, d, new cljs.core.Keyword(null, "entry", "entry", 505168823), schengencalc.dates.to_date.call(null, entry), new cljs.core.Keyword(null, "exit", "exit", 351849638), schengencalc.dates.to_date.call(null, exit)), iter__9430.call(null, cljs.core.rest.call(null, s__9431__$2)));
           }
         } else {
           return null;
@@ -33970,43 +33970,43 @@ schengencalc.dates.positive_or_zero = function positive_or_zero(n) {
   }
 };
 schengencalc.dates.duration = function duration(period_end, period_start) {
-  return schengencalc.dates.positive_or_zero.call(null, Math.floor(moment.duration(period_end.diff(period_start)).asDays()) + 1);
+  return schengencalc.dates.positive_or_zero.call(null, Math.round(moment.duration(period_end.diff(period_start)).asDays()) + 1);
 };
-schengencalc.dates.days_in_period = function days_in_period(p__7603, travel_dates) {
-  var map__7613 = p__7603;
-  var map__7613__$1 = cljs.core.seq_QMARK_.call(null, map__7613) ? cljs.core.apply.call(null, cljs.core.hash_map, map__7613) : map__7613;
-  var period = map__7613__$1;
-  var start = cljs.core.get.call(null, map__7613__$1, new cljs.core.Keyword(null, "start", "start", -355208981));
-  var end = cljs.core.get.call(null, map__7613__$1, new cljs.core.Keyword(null, "end", "end", -268185958));
+schengencalc.dates.days_in_period = function days_in_period(p__9439, travel_dates) {
+  var map__9449 = p__9439;
+  var map__9449__$1 = cljs.core.seq_QMARK_.call(null, map__9449) ? cljs.core.apply.call(null, cljs.core.hash_map, map__9449) : map__9449;
+  var period = map__9449__$1;
+  var start = cljs.core.get.call(null, map__9449__$1, new cljs.core.Keyword(null, "start", "start", -355208981));
+  var end = cljs.core.get.call(null, map__9449__$1, new cljs.core.Keyword(null, "end", "end", -268185958));
   return cljs.core.reduce.call(null, cljs.core._PLUS_, function() {
-    var iter__4268__auto__ = function(map__7613, map__7613__$1, period, start, end) {
-      return function iter__7614(s__7615) {
-        return new cljs.core.LazySeq(null, function(map__7613, map__7613__$1, period, start, end) {
+    var iter__4268__auto__ = function(map__9449, map__9449__$1, period, start, end) {
+      return function iter__9450(s__9451) {
+        return new cljs.core.LazySeq(null, function(map__9449, map__9449__$1, period, start, end) {
           return function() {
-            var s__7615__$1 = s__7615;
+            var s__9451__$1 = s__9451;
             while (true) {
-              var temp__4126__auto__ = cljs.core.seq.call(null, s__7615__$1);
+              var temp__4126__auto__ = cljs.core.seq.call(null, s__9451__$1);
               if (temp__4126__auto__) {
-                var s__7615__$2 = temp__4126__auto__;
-                if (cljs.core.chunked_seq_QMARK_.call(null, s__7615__$2)) {
-                  var c__4266__auto__ = cljs.core.chunk_first.call(null, s__7615__$2);
+                var s__9451__$2 = temp__4126__auto__;
+                if (cljs.core.chunked_seq_QMARK_.call(null, s__9451__$2)) {
+                  var c__4266__auto__ = cljs.core.chunk_first.call(null, s__9451__$2);
                   var size__4267__auto__ = cljs.core.count.call(null, c__4266__auto__);
-                  var b__7617 = cljs.core.chunk_buffer.call(null, size__4267__auto__);
+                  var b__9453 = cljs.core.chunk_buffer.call(null, size__4267__auto__);
                   if (function() {
-                    var i__7616 = 0;
+                    var i__9452 = 0;
                     while (true) {
-                      if (i__7616 < size__4267__auto__) {
-                        var map__7620 = cljs.core._nth.call(null, c__4266__auto__, i__7616);
-                        var map__7620__$1 = cljs.core.seq_QMARK_.call(null, map__7620) ? cljs.core.apply.call(null, cljs.core.hash_map, map__7620) : map__7620;
-                        var entry = cljs.core.get.call(null, map__7620__$1, new cljs.core.Keyword(null, "entry", "entry", 505168823));
-                        var exit = cljs.core.get.call(null, map__7620__$1, new cljs.core.Keyword(null, "exit", "exit", 351849638));
-                        cljs.core.chunk_append.call(null, b__7617, function() {
+                      if (i__9452 < size__4267__auto__) {
+                        var map__9456 = cljs.core._nth.call(null, c__4266__auto__, i__9452);
+                        var map__9456__$1 = cljs.core.seq_QMARK_.call(null, map__9456) ? cljs.core.apply.call(null, cljs.core.hash_map, map__9456) : map__9456;
+                        var entry = cljs.core.get.call(null, map__9456__$1, new cljs.core.Keyword(null, "entry", "entry", 505168823));
+                        var exit = cljs.core.get.call(null, map__9456__$1, new cljs.core.Keyword(null, "exit", "exit", 351849638));
+                        cljs.core.chunk_append.call(null, b__9453, function() {
                           var period_start = schengencalc.dates.max_date.call(null, start, entry);
                           var period_end = schengencalc.dates.min_date.call(null, exit, end);
                           return schengencalc.dates.duration.call(null, period_end, period_start);
                         }());
-                        var G__7622 = i__7616 + 1;
-                        i__7616 = G__7622;
+                        var G__9458 = i__9452 + 1;
+                        i__9452 = G__9458;
                         continue;
                       } else {
                         return true;
@@ -34014,20 +34014,20 @@ schengencalc.dates.days_in_period = function days_in_period(p__7603, travel_date
                       break;
                     }
                   }()) {
-                    return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__7617), iter__7614.call(null, cljs.core.chunk_rest.call(null, s__7615__$2)));
+                    return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__9453), iter__9450.call(null, cljs.core.chunk_rest.call(null, s__9451__$2)));
                   } else {
-                    return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__7617), null);
+                    return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__9453), null);
                   }
                 } else {
-                  var map__7621 = cljs.core.first.call(null, s__7615__$2);
-                  var map__7621__$1 = cljs.core.seq_QMARK_.call(null, map__7621) ? cljs.core.apply.call(null, cljs.core.hash_map, map__7621) : map__7621;
-                  var entry = cljs.core.get.call(null, map__7621__$1, new cljs.core.Keyword(null, "entry", "entry", 505168823));
-                  var exit = cljs.core.get.call(null, map__7621__$1, new cljs.core.Keyword(null, "exit", "exit", 351849638));
+                  var map__9457 = cljs.core.first.call(null, s__9451__$2);
+                  var map__9457__$1 = cljs.core.seq_QMARK_.call(null, map__9457) ? cljs.core.apply.call(null, cljs.core.hash_map, map__9457) : map__9457;
+                  var entry = cljs.core.get.call(null, map__9457__$1, new cljs.core.Keyword(null, "entry", "entry", 505168823));
+                  var exit = cljs.core.get.call(null, map__9457__$1, new cljs.core.Keyword(null, "exit", "exit", 351849638));
                   return cljs.core.cons.call(null, function() {
                     var period_start = schengencalc.dates.max_date.call(null, start, entry);
                     var period_end = schengencalc.dates.min_date.call(null, exit, end);
                     return schengencalc.dates.duration.call(null, period_end, period_start);
-                  }(), iter__7614.call(null, cljs.core.rest.call(null, s__7615__$2)));
+                  }(), iter__9450.call(null, cljs.core.rest.call(null, s__9451__$2)));
                 }
               } else {
                 return null;
@@ -34035,39 +34035,39 @@ schengencalc.dates.days_in_period = function days_in_period(p__7603, travel_date
               break;
             }
           };
-        }(map__7613, map__7613__$1, period, start, end), null, null);
+        }(map__9449, map__9449__$1, period, start, end), null, null);
       };
-    }(map__7613, map__7613__$1, period, start, end);
+    }(map__9449, map__9449__$1, period, start, end);
     return iter__4268__auto__.call(null, travel_dates);
   }());
 };
 schengencalc.dates.re_entry_dates = function re_entry_dates(travel_dates) {
   var travel_dates__$1 = schengencalc.dates.clean_travel_dates.call(null, travel_dates);
   var iter__4268__auto__ = function(travel_dates__$1) {
-    return function iter__7627(s__7628) {
+    return function iter__9463(s__9464) {
       return new cljs.core.LazySeq(null, function(travel_dates__$1) {
         return function() {
-          var s__7628__$1 = s__7628;
+          var s__9464__$1 = s__9464;
           while (true) {
-            var temp__4126__auto__ = cljs.core.seq.call(null, s__7628__$1);
+            var temp__4126__auto__ = cljs.core.seq.call(null, s__9464__$1);
             if (temp__4126__auto__) {
-              var s__7628__$2 = temp__4126__auto__;
-              if (cljs.core.chunked_seq_QMARK_.call(null, s__7628__$2)) {
-                var c__4266__auto__ = cljs.core.chunk_first.call(null, s__7628__$2);
+              var s__9464__$2 = temp__4126__auto__;
+              if (cljs.core.chunked_seq_QMARK_.call(null, s__9464__$2)) {
+                var c__4266__auto__ = cljs.core.chunk_first.call(null, s__9464__$2);
                 var size__4267__auto__ = cljs.core.count.call(null, c__4266__auto__);
-                var b__7630 = cljs.core.chunk_buffer.call(null, size__4267__auto__);
+                var b__9466 = cljs.core.chunk_buffer.call(null, size__4267__auto__);
                 if (function() {
-                  var i__7629 = 0;
+                  var i__9465 = 0;
                   while (true) {
-                    if (i__7629 < size__4267__auto__) {
-                      var period = cljs.core._nth.call(null, c__4266__auto__, i__7629);
-                      cljs.core.chunk_append.call(null, b__7630, function() {
+                    if (i__9465 < size__4267__auto__) {
+                      var period = cljs.core._nth.call(null, c__4266__auto__, i__9465);
+                      cljs.core.chunk_append.call(null, b__9466, function() {
                         var days = schengencalc.dates.days_in_period.call(null, period, travel_dates__$1);
                         return new cljs.core.PersistentArrayMap(null, 6, [new cljs.core.Keyword(null, "period", "period", -352129191), period, new cljs.core.Keyword(null, "deadline", "deadline", 628964572), (new cljs.core.Keyword(null, "end", "end", -268185958)).cljs$core$IFn$_invoke$arity$1(period), new cljs.core.Keyword(null, "days-left", "days-left", 145761870), 90 - days, new cljs.core.Keyword(null, "days-used", "days-used", -316946025), days, new cljs.core.Keyword(null, "start-date", "start-date", 
                         295168731), (new cljs.core.Keyword(null, "start", "start", -355208981)).cljs$core$IFn$_invoke$arity$1(period), new cljs.core.Keyword(null, "end-date", "end-date", -208259642), (new cljs.core.Keyword(null, "end", "end", -268185958)).cljs$core$IFn$_invoke$arity$1(period)], null);
                       }());
-                      var G__7631 = i__7629 + 1;
-                      i__7629 = G__7631;
+                      var G__9467 = i__9465 + 1;
+                      i__9465 = G__9467;
                       continue;
                     } else {
                       return true;
@@ -34075,17 +34075,17 @@ schengencalc.dates.re_entry_dates = function re_entry_dates(travel_dates) {
                     break;
                   }
                 }()) {
-                  return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__7630), iter__7627.call(null, cljs.core.chunk_rest.call(null, s__7628__$2)));
+                  return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__9466), iter__9463.call(null, cljs.core.chunk_rest.call(null, s__9464__$2)));
                 } else {
-                  return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__7630), null);
+                  return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__9466), null);
                 }
               } else {
-                var period = cljs.core.first.call(null, s__7628__$2);
+                var period = cljs.core.first.call(null, s__9464__$2);
                 return cljs.core.cons.call(null, function() {
                   var days = schengencalc.dates.days_in_period.call(null, period, travel_dates__$1);
                   return new cljs.core.PersistentArrayMap(null, 6, [new cljs.core.Keyword(null, "period", "period", -352129191), period, new cljs.core.Keyword(null, "deadline", "deadline", 628964572), (new cljs.core.Keyword(null, "end", "end", -268185958)).cljs$core$IFn$_invoke$arity$1(period), new cljs.core.Keyword(null, "days-left", "days-left", 145761870), 90 - days, new cljs.core.Keyword(null, "days-used", "days-used", -316946025), days, new cljs.core.Keyword(null, "start-date", "start-date", 
                   295168731), (new cljs.core.Keyword(null, "start", "start", -355208981)).cljs$core$IFn$_invoke$arity$1(period), new cljs.core.Keyword(null, "end-date", "end-date", -208259642), (new cljs.core.Keyword(null, "end", "end", -268185958)).cljs$core$IFn$_invoke$arity$1(period)], null);
-                }(), iter__7627.call(null, cljs.core.rest.call(null, s__7628__$2)));
+                }(), iter__9463.call(null, cljs.core.rest.call(null, s__9464__$2)));
               }
             } else {
               return null;
@@ -37352,27 +37352,27 @@ schengencalc.core.store = function store(k, obj) {
 schengencalc.core.keywordify = function keywordify(m) {
   if (cljs.core.map_QMARK_.call(null, m)) {
     return cljs.core.into.call(null, cljs.core.PersistentArrayMap.EMPTY, function() {
-      var iter__4268__auto__ = function iter__7536(s__7537) {
+      var iter__4268__auto__ = function iter__9372(s__9373) {
         return new cljs.core.LazySeq(null, function() {
-          var s__7537__$1 = s__7537;
+          var s__9373__$1 = s__9373;
           while (true) {
-            var temp__4126__auto__ = cljs.core.seq.call(null, s__7537__$1);
+            var temp__4126__auto__ = cljs.core.seq.call(null, s__9373__$1);
             if (temp__4126__auto__) {
-              var s__7537__$2 = temp__4126__auto__;
-              if (cljs.core.chunked_seq_QMARK_.call(null, s__7537__$2)) {
-                var c__4266__auto__ = cljs.core.chunk_first.call(null, s__7537__$2);
+              var s__9373__$2 = temp__4126__auto__;
+              if (cljs.core.chunked_seq_QMARK_.call(null, s__9373__$2)) {
+                var c__4266__auto__ = cljs.core.chunk_first.call(null, s__9373__$2);
                 var size__4267__auto__ = cljs.core.count.call(null, c__4266__auto__);
-                var b__7539 = cljs.core.chunk_buffer.call(null, size__4267__auto__);
+                var b__9375 = cljs.core.chunk_buffer.call(null, size__4267__auto__);
                 if (function() {
-                  var i__7538 = 0;
+                  var i__9374 = 0;
                   while (true) {
-                    if (i__7538 < size__4267__auto__) {
-                      var vec__7542 = cljs.core._nth.call(null, c__4266__auto__, i__7538);
-                      var k = cljs.core.nth.call(null, vec__7542, 0, null);
-                      var v = cljs.core.nth.call(null, vec__7542, 1, null);
-                      cljs.core.chunk_append.call(null, b__7539, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.keyword.call(null, k), keywordify.call(null, v)], null));
-                      var G__7544 = i__7538 + 1;
-                      i__7538 = G__7544;
+                    if (i__9374 < size__4267__auto__) {
+                      var vec__9378 = cljs.core._nth.call(null, c__4266__auto__, i__9374);
+                      var k = cljs.core.nth.call(null, vec__9378, 0, null);
+                      var v = cljs.core.nth.call(null, vec__9378, 1, null);
+                      cljs.core.chunk_append.call(null, b__9375, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.keyword.call(null, k), keywordify.call(null, v)], null));
+                      var G__9380 = i__9374 + 1;
+                      i__9374 = G__9380;
                       continue;
                     } else {
                       return true;
@@ -37380,15 +37380,15 @@ schengencalc.core.keywordify = function keywordify(m) {
                     break;
                   }
                 }()) {
-                  return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__7539), iter__7536.call(null, cljs.core.chunk_rest.call(null, s__7537__$2)));
+                  return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__9375), iter__9372.call(null, cljs.core.chunk_rest.call(null, s__9373__$2)));
                 } else {
-                  return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__7539), null);
+                  return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__9375), null);
                 }
               } else {
-                var vec__7543 = cljs.core.first.call(null, s__7537__$2);
-                var k = cljs.core.nth.call(null, vec__7543, 0, null);
-                var v = cljs.core.nth.call(null, vec__7543, 1, null);
-                return cljs.core.cons.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.keyword.call(null, k), keywordify.call(null, v)], null), iter__7536.call(null, cljs.core.rest.call(null, s__7537__$2)));
+                var vec__9379 = cljs.core.first.call(null, s__9373__$2);
+                var k = cljs.core.nth.call(null, vec__9379, 0, null);
+                var v = cljs.core.nth.call(null, vec__9379, 1, null);
+                return cljs.core.cons.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.keyword.call(null, k), keywordify.call(null, v)], null), iter__9372.call(null, cljs.core.rest.call(null, s__9373__$2)));
               }
             } else {
               return null;
@@ -37423,8 +37423,8 @@ schengencalc.core.fetch = function fetch(k, default$) {
       if (cljs.core.truth_(or__3543__auto__)) {
         return or__3543__auto__;
       } else {
-        var obj7548 = {};
-        return obj7548;
+        var obj9384 = {};
+        return obj9384;
       }
     }())));
   } else {
@@ -37439,67 +37439,67 @@ schengencalc.core.fmt_date_iso = function fmt_date_iso(d) {
 };
 schengencalc.core.date_input = function date_input(stay_key) {
   return function(stay, owner) {
-    if (typeof schengencalc.core.t7554 !== "undefined") {
+    if (typeof schengencalc.core.t9390 !== "undefined") {
     } else {
-      schengencalc.core.t7554 = function(owner, stay, stay_key, date_input, meta7555) {
+      schengencalc.core.t9390 = function(owner, stay, stay_key, date_input, meta9391) {
         this.owner = owner;
         this.stay = stay;
         this.stay_key = stay_key;
         this.date_input = date_input;
-        this.meta7555 = meta7555;
+        this.meta9391 = meta9391;
         this.cljs$lang$protocol_mask$partition1$ = 0;
         this.cljs$lang$protocol_mask$partition0$ = 393216;
       };
-      schengencalc.core.t7554.cljs$lang$type = true;
-      schengencalc.core.t7554.cljs$lang$ctorStr = "schengencalc.core/t7554";
-      schengencalc.core.t7554.cljs$lang$ctorPrWriter = function(this__4110__auto__, writer__4111__auto__, opt__4112__auto__) {
-        return cljs.core._write.call(null, writer__4111__auto__, "schengencalc.core/t7554");
+      schengencalc.core.t9390.cljs$lang$type = true;
+      schengencalc.core.t9390.cljs$lang$ctorStr = "schengencalc.core/t9390";
+      schengencalc.core.t9390.cljs$lang$ctorPrWriter = function(this__4110__auto__, writer__4111__auto__, opt__4112__auto__) {
+        return cljs.core._write.call(null, writer__4111__auto__, "schengencalc.core/t9390");
       };
-      schengencalc.core.t7554.prototype.om$core$IRender$ = true;
-      schengencalc.core.t7554.prototype.om$core$IRender$render$arity$1 = function(_) {
+      schengencalc.core.t9390.prototype.om$core$IRender$ = true;
+      schengencalc.core.t9390.prototype.om$core$IRender$render$arity$1 = function(_) {
         var self__ = this;
         var ___$1 = this;
         var date = schengencalc.dates.to_date.call(null, cljs.core.get.call(null, self__.stay, self__.stay_key));
         return om.dom.input.call(null, {"value":date.format("YYYY-MM-DD")});
       };
-      schengencalc.core.t7554.prototype.om$core$IDidMount$ = true;
-      schengencalc.core.t7554.prototype.om$core$IDidMount$did_mount$arity$1 = function(_) {
+      schengencalc.core.t9390.prototype.om$core$IDidMount$ = true;
+      schengencalc.core.t9390.prototype.om$core$IDidMount$did_mount$arity$1 = function(_) {
         var self__ = this;
         var ___$1 = this;
         return new Pikaday(function() {
-          var obj7558 = {"onSelect":function(___$1) {
+          var obj9394 = {"onSelect":function(___$1) {
             return function() {
               var t = this;
               return om.core.update_BANG_.call(null, self__.stay, self__.stay_key, t.getMoment());
             };
           }(___$1), "format":"YYYY-MM-DD", "minDate":new Date(2009, 0, 1), "field":om.core.get_node.call(null, self__.owner)};
-          return obj7558;
+          return obj9394;
         }());
       };
-      schengencalc.core.t7554.prototype.cljs$core$IMeta$_meta$arity$1 = function(_7556) {
+      schengencalc.core.t9390.prototype.cljs$core$IMeta$_meta$arity$1 = function(_9392) {
         var self__ = this;
-        var _7556__$1 = this;
-        return self__.meta7555;
+        var _9392__$1 = this;
+        return self__.meta9391;
       };
-      schengencalc.core.t7554.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(_7556, meta7555__$1) {
+      schengencalc.core.t9390.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(_9392, meta9391__$1) {
         var self__ = this;
-        var _7556__$1 = this;
-        return new schengencalc.core.t7554(self__.owner, self__.stay, self__.stay_key, self__.date_input, meta7555__$1);
+        var _9392__$1 = this;
+        return new schengencalc.core.t9390(self__.owner, self__.stay, self__.stay_key, self__.date_input, meta9391__$1);
       };
-      schengencalc.core.__GT_t7554 = function __GT_t7554(owner__$1, stay__$1, stay_key__$1, date_input__$1, meta7555) {
-        return new schengencalc.core.t7554(owner__$1, stay__$1, stay_key__$1, date_input__$1, meta7555);
+      schengencalc.core.__GT_t9390 = function __GT_t9390(owner__$1, stay__$1, stay_key__$1, date_input__$1, meta9391) {
+        return new schengencalc.core.t9390(owner__$1, stay__$1, stay_key__$1, date_input__$1, meta9391);
       };
     }
-    return new schengencalc.core.t7554(owner, stay, stay_key, date_input, null);
+    return new schengencalc.core.t9390(owner, stay, stay_key, date_input, null);
   };
 };
-schengencalc.core.date_row = function date_row(p__7561, travel_dates) {
-  var map__7563 = p__7561;
-  var map__7563__$1 = cljs.core.seq_QMARK_.call(null, map__7563) ? cljs.core.apply.call(null, cljs.core.hash_map, map__7563) : map__7563;
-  var rowdata = map__7563__$1;
-  var exit = cljs.core.get.call(null, map__7563__$1, new cljs.core.Keyword(null, "exit", "exit", 351849638));
-  var entry = cljs.core.get.call(null, map__7563__$1, new cljs.core.Keyword(null, "entry", "entry", 505168823));
-  var ch7560 = kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.apply.call(null, om.dom.tr, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "date-row", new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 9, 5, cljs.core.PersistentVector.EMPTY_NODE, 
+schengencalc.core.date_row = function date_row(p__9397, travel_dates) {
+  var map__9399 = p__9397;
+  var map__9399__$1 = cljs.core.seq_QMARK_.call(null, map__9399) ? cljs.core.apply.call(null, cljs.core.hash_map, map__9399) : map__9399;
+  var rowdata = map__9399__$1;
+  var exit = cljs.core.get.call(null, map__9399__$1, new cljs.core.Keyword(null, "exit", "exit", 351849638));
+  var entry = cljs.core.get.call(null, map__9399__$1, new cljs.core.Keyword(null, "entry", "entry", 505168823));
+  var ch9396 = kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.apply.call(null, om.dom.tr, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "date-row", new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 9, 5, cljs.core.PersistentVector.EMPTY_NODE, 
   ["\n                  ", cljs.core.apply.call(null, om.dom.td, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), null, new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, ["\n                      ", kioo.core.handle_wrapper.call(null, kioo.om.make_dom).call(null, kioo.om.substitute.call(null, 
   om.core.build.call(null, schengencalc.core.date_input.call(null, new cljs.core.Keyword(null, "entry", "entry", 505168823)), rowdata)).call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "tag", "tag", -1290361223), new cljs.core.Keyword(null, "input", "input", 556931961), new cljs.core.Keyword(null, "attrs", "attrs", -2090668713), new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "className", "className", -1983287057), "entry", new cljs.core.Keyword(null, 
   "style", "style", -496642736), null, new cljs.core.Keyword(null, "type", "type", 1174270348), "date"], null), new cljs.core.Keyword(null, "content", "content", 15833224), kioo.util.flatten_nodes.call(null, cljs.core.PersistentVector.EMPTY), new cljs.core.Keyword(null, "sym", "sym", -1444860305), om.dom.input], null))), "\n                  "], null))), "\n                  ", cljs.core.apply.call(null, om.dom.td, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, 
@@ -37508,56 +37508,56 @@ schengencalc.core.date_row = function date_row(p__7561, travel_dates) {
   "content", "content", 15833224), kioo.util.flatten_nodes.call(null, cljs.core.PersistentVector.EMPTY), new cljs.core.Keyword(null, "sym", "sym", -1444860305), om.dom.input], null))), "\n                  "], null))), "\n                  ", kioo.core.handle_wrapper.call(null, kioo.om.make_dom).call(null, kioo.om.content.call(null, "" + cljs.core.str.cljs$core$IFn$_invoke$arity$1(schengencalc.dates.duration.call(null, schengencalc.dates.to_date.call(null, (new cljs.core.Keyword(null, "exit", "exit", 
   351849638)).cljs$core$IFn$_invoke$arity$1(rowdata)), schengencalc.dates.to_date.call(null, (new cljs.core.Keyword(null, "entry", "entry", 505168823)).cljs$core$IFn$_invoke$arity$1(rowdata)))) + " days").call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "tag", "tag", -1290361223), new cljs.core.Keyword(null, "td", "td", 1479933353), new cljs.core.Keyword(null, "attrs", "attrs", -2090668713), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", 
   "className", -1983287057), "duration", new cljs.core.Keyword(null, "style", "style", -496642736), null], null), new cljs.core.Keyword(null, "content", "content", 15833224), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["\n                      76 days\n                  "], null)), new cljs.core.Keyword(null, "sym", "sym", -1444860305), om.dom.td], null))), "\n                  ", cljs.core.apply.call(null, om.dom.td, cljs.core.clj__GT_js.call(null, 
-  new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "dissoc", new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, ["\n                    ", kioo.core.handle_wrapper.call(null, kioo.om.make_dom).call(null, kioo.om.listen.call(null, new cljs.core.Keyword(null, "on-click", "on-click", 1632826543), function(map__7563, 
-  map__7563__$1, rowdata, exit, entry) {
+  new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "dissoc", new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, ["\n                    ", kioo.core.handle_wrapper.call(null, kioo.om.make_dom).call(null, kioo.om.listen.call(null, new cljs.core.Keyword(null, "on-click", "on-click", 1632826543), function(map__9399, 
+  map__9399__$1, rowdata, exit, entry) {
     return function(e) {
       e.preventDefault();
-      return om.core.transact_BANG_.call(null, travel_dates, function(map__7563, map__7563__$1, rowdata, exit, entry) {
-        return function(p1__7559_SHARP_) {
-          return cljs.core.vec.call(null, cljs.core.filter.call(null, function(map__7563, map__7563__$1, rowdata, exit, entry) {
+      return om.core.transact_BANG_.call(null, travel_dates, function(map__9399, map__9399__$1, rowdata, exit, entry) {
+        return function(p1__9395_SHARP_) {
+          return cljs.core.vec.call(null, cljs.core.filter.call(null, function(map__9399, map__9399__$1, rowdata, exit, entry) {
             return function(x) {
               return!cljs.core._EQ_.call(null, (new cljs.core.Keyword(null, "entry", "entry", 505168823)).cljs$core$IFn$_invoke$arity$1(x), entry) && !cljs.core._EQ_.call(null, (new cljs.core.Keyword(null, "exit", "exit", 351849638)).cljs$core$IFn$_invoke$arity$1(x), exit);
             };
-          }(map__7563, map__7563__$1, rowdata, exit, entry), p1__7559_SHARP_));
+          }(map__9399, map__9399__$1, rowdata, exit, entry), p1__9395_SHARP_));
         };
-      }(map__7563, map__7563__$1, rowdata, exit, entry));
+      }(map__9399, map__9399__$1, rowdata, exit, entry));
     };
-  }(map__7563, map__7563__$1, rowdata, exit, entry)).call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "tag", "tag", -1290361223), new cljs.core.Keyword(null, "a", "a", -2123407586), new cljs.core.Keyword(null, "attrs", "attrs", -2090668713), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), null, new cljs.core.Keyword(null, "style", "style", -496642736), null], null), new cljs.core.Keyword(null, "content", 
+  }(map__9399, map__9399__$1, rowdata, exit, entry)).call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "tag", "tag", -1290361223), new cljs.core.Keyword(null, "a", "a", -2123407586), new cljs.core.Keyword(null, "attrs", "attrs", -2090668713), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), null, new cljs.core.Keyword(null, "style", "style", -496642736), null], null), new cljs.core.Keyword(null, "content", 
   "content", 15833224), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.apply.call(null, om.dom.i, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "fi-x", new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, cljs.core.PersistentVector.EMPTY))], null)), new cljs.core.Keyword(null, 
   "sym", "sym", -1444860305), om.dom.a], null))), "\n                  "], null))), "\n                "], null)))], null));
-  if (cljs.core._EQ_.call(null, 1, cljs.core.count.call(null, ch7560))) {
-    return cljs.core.first.call(null, ch7560);
+  if (cljs.core._EQ_.call(null, 1, cljs.core.count.call(null, ch9396))) {
+    return cljs.core.first.call(null, ch9396);
   } else {
-    return cljs.core.apply.call(null, om.dom.span, null, ch7560);
+    return cljs.core.apply.call(null, om.dom.span, null, ch9396);
   }
 };
-schengencalc.core.result_item = function result_item(p__7565) {
-  var map__7567 = p__7565;
-  var map__7567__$1 = cljs.core.seq_QMARK_.call(null, map__7567) ? cljs.core.apply.call(null, cljs.core.hash_map, map__7567) : map__7567;
-  var end_date = cljs.core.get.call(null, map__7567__$1, new cljs.core.Keyword(null, "end-date", "end-date", -208259642));
-  var start_date = cljs.core.get.call(null, map__7567__$1, new cljs.core.Keyword(null, "start-date", "start-date", 295168731));
-  var days_used = cljs.core.get.call(null, map__7567__$1, new cljs.core.Keyword(null, "days-used", "days-used", -316946025));
-  var ch7564 = kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.apply.call(null, om.dom.li, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "stay-tpl", new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 7, 5, cljs.core.PersistentVector.EMPTY_NODE, 
+schengencalc.core.result_item = function result_item(p__9401) {
+  var map__9403 = p__9401;
+  var map__9403__$1 = cljs.core.seq_QMARK_.call(null, map__9403) ? cljs.core.apply.call(null, cljs.core.hash_map, map__9403) : map__9403;
+  var end_date = cljs.core.get.call(null, map__9403__$1, new cljs.core.Keyword(null, "end-date", "end-date", -208259642));
+  var start_date = cljs.core.get.call(null, map__9403__$1, new cljs.core.Keyword(null, "start-date", "start-date", 295168731));
+  var days_used = cljs.core.get.call(null, map__9403__$1, new cljs.core.Keyword(null, "days-used", "days-used", -316946025));
+  var ch9400 = kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.apply.call(null, om.dom.li, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "stay-tpl", new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 7, 5, cljs.core.PersistentVector.EMPTY_NODE, 
   ["\n                  Between ", kioo.core.handle_wrapper.call(null, kioo.om.make_dom).call(null, kioo.om.content.call(null, schengencalc.core.fmt_date.call(null, start_date)).call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "tag", "tag", -1290361223), new cljs.core.Keyword(null, "span", "span", 1394872991), new cljs.core.Keyword(null, "attrs", "attrs", -2090668713), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", 
   -1983287057), "start", new cljs.core.Keyword(null, "style", "style", -496642736), null], null), new cljs.core.Keyword(null, "content", "content", 15833224), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["August 12, 2014"], null)), new cljs.core.Keyword(null, "sym", "sym", -1444860305), om.dom.span], null))), "\n                  and ", kioo.core.handle_wrapper.call(null, kioo.om.make_dom).call(null, kioo.om.content.call(null, 
   schengencalc.core.fmt_date.call(null, end_date)).call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "tag", "tag", -1290361223), new cljs.core.Keyword(null, "span", "span", 1394872991), new cljs.core.Keyword(null, "attrs", "attrs", -2090668713), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "end", new cljs.core.Keyword(null, "style", "style", -496642736), null], null), new cljs.core.Keyword(null, "content", 
   "content", 15833224), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["December 14, 2014"], null)), new cljs.core.Keyword(null, "sym", "sym", -1444860305), om.dom.span], null))), ", you will stay for\n                  ", kioo.core.handle_wrapper.call(null, kioo.om.make_dom).call(null, kioo.om.content.call(null, days_used).call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "tag", "tag", -1290361223), 
   new cljs.core.Keyword(null, "span", "span", 1394872991), new cljs.core.Keyword(null, "attrs", "attrs", -2090668713), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "days-used", new cljs.core.Keyword(null, "style", "style", -496642736), null], null), new cljs.core.Keyword(null, "content", "content", 15833224), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [" 30"], 
   null)), new cljs.core.Keyword(null, "sym", "sym", -1444860305), om.dom.span], null))), " days.\n                "], null)))], null));
-  if (cljs.core._EQ_.call(null, 1, cljs.core.count.call(null, ch7564))) {
-    return cljs.core.first.call(null, ch7564);
+  if (cljs.core._EQ_.call(null, 1, cljs.core.count.call(null, ch9400))) {
+    return cljs.core.first.call(null, ch9400);
   } else {
-    return cljs.core.apply.call(null, om.dom.span, null, ch7564);
+    return cljs.core.apply.call(null, om.dom.span, null, ch9400);
   }
 };
 schengencalc.core.init_travel_dates = function init_travel_dates() {
   return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "entry", "entry", 505168823), moment().startOf("day"), new cljs.core.Keyword(null, "exit", "exit", 351849638), moment().startOf("day")], null);
 };
-schengencalc.core.main = function main(p__7573) {
-  var map__7575 = p__7573;
-  var map__7575__$1 = cljs.core.seq_QMARK_.call(null, map__7575) ? cljs.core.apply.call(null, cljs.core.hash_map, map__7575) : map__7575;
-  var travel_dates = cljs.core.get.call(null, map__7575__$1, new cljs.core.Keyword(null, "travel-dates", "travel-dates", -960218385));
-  var ch7572 = kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, ["\n\n      ", cljs.core.apply.call(null, om.dom.div, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "container", new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 17, 5, cljs.core.PersistentVector.EMPTY_NODE, 
+schengencalc.core.main = function main(p__9409) {
+  var map__9411 = p__9409;
+  var map__9411__$1 = cljs.core.seq_QMARK_.call(null, map__9411) ? cljs.core.apply.call(null, cljs.core.hash_map, map__9411) : map__9411;
+  var travel_dates = cljs.core.get.call(null, map__9411__$1, new cljs.core.Keyword(null, "travel-dates", "travel-dates", -960218385));
+  var ch9408 = kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, ["\n\n      ", cljs.core.apply.call(null, om.dom.div, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "container", new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 17, 5, cljs.core.PersistentVector.EMPTY_NODE, 
   ["\n        ", cljs.core.apply.call(null, om.dom.header, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), null, new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 7, 5, cljs.core.PersistentVector.EMPTY_NODE, ["\n          ", cljs.core.apply.call(null, om.dom.h1, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 
   2, [new cljs.core.Keyword(null, "className", "className", -1983287057), null, new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["Schengen calculator"], null))), "\n          ", cljs.core.apply.call(null, om.dom.h2, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), 
   null, new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["For Visa-Free visitors"], null))), "\n        ", cljs.core.apply.call(null, om.dom.p, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), null, new cljs.core.Keyword(null, "style", "style", -496642736), null], 
@@ -37569,12 +37569,12 @@ schengencalc.core.main = function main(p__7573) {
   null, new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 9, 5, cljs.core.PersistentVector.EMPTY_NODE, ["\n                ", cljs.core.apply.call(null, om.dom.th, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), null, new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, 
   new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["Entry"], null))), "\n                ", cljs.core.apply.call(null, om.dom.th, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), null, new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, 
   ["Exit"], null))), "\n                ", cljs.core.apply.call(null, om.dom.th, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), null, new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["Duration"], null))), "\n                ", cljs.core.apply.call(null, om.dom.th, 
-  cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), null, new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, cljs.core.PersistentVector.EMPTY)), "\n              "], null))), "\n            "], null))), "\n              ", kioo.core.handle_wrapper.call(null, kioo.om.make_dom).call(null, kioo.om.content.call(null, cljs.core.map.call(null, function(map__7575, 
-  map__7575__$1, travel_dates) {
-    return function(p1__7568_SHARP_) {
-      return schengencalc.core.date_row.call(null, p1__7568_SHARP_, travel_dates);
+  cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), null, new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, cljs.core.PersistentVector.EMPTY)), "\n              "], null))), "\n            "], null))), "\n              ", kioo.core.handle_wrapper.call(null, kioo.om.make_dom).call(null, kioo.om.content.call(null, cljs.core.map.call(null, function(map__9411, 
+  map__9411__$1, travel_dates) {
+    return function(p1__9404_SHARP_) {
+      return schengencalc.core.date_row.call(null, p1__9404_SHARP_, travel_dates);
     };
-  }(map__7575, map__7575__$1, travel_dates), travel_dates)).call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "tag", "tag", -1290361223), new cljs.core.Keyword(null, "tbody", "tbody", -80678300), new cljs.core.Keyword(null, "attrs", "attrs", -2090668713), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "travel-dates", new cljs.core.Keyword(null, "style", "style", -496642736), null], null), new cljs.core.Keyword(null, 
+  }(map__9411, map__9411__$1, travel_dates), travel_dates)).call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "tag", "tag", -1290361223), new cljs.core.Keyword(null, "tbody", "tbody", -80678300), new cljs.core.Keyword(null, "attrs", "attrs", -2090668713), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "travel-dates", new cljs.core.Keyword(null, "style", "style", -496642736), null], null), new cljs.core.Keyword(null, 
   "content", "content", 15833224), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, ["\n                ", cljs.core.apply.call(null, om.dom.tr, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "date-row", new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 
   9, 5, cljs.core.PersistentVector.EMPTY_NODE, ["\n                  ", cljs.core.apply.call(null, om.dom.td, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), null, new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, ["\n                      ", cljs.core.apply.call(null, 
   om.dom.input, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null, "className", "className", -1983287057), "entry", new cljs.core.Keyword(null, "style", "style", -496642736), null, new cljs.core.Keyword(null, "type", "type", 1174270348), "date"], null)), kioo.util.flatten_nodes.call(null, cljs.core.PersistentVector.EMPTY)), "\n                  "], null))), "\n                  ", cljs.core.apply.call(null, om.dom.td, cljs.core.clj__GT_js.call(null, 
@@ -37584,30 +37584,30 @@ schengencalc.core.main = function main(p__7573) {
   null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, ["\n                    ", cljs.core.apply.call(null, om.dom.a, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), null, new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, 
   [cljs.core.apply.call(null, om.dom.i, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "fi-x", new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, cljs.core.PersistentVector.EMPTY))], null))), "\n                  "], null))), "\n                "], null))), "\n              "], null)), new cljs.core.Keyword(null, "sym", "sym", -1444860305), om.dom.tbody], 
   null))), "\n          "], null))), "\n\n          ", cljs.core.apply.call(null, om.dom.div, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "add-stay", new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, ["\n            ", kioo.core.handle_wrapper.call(null, kioo.om.make_dom).call(null, 
-  kioo.om.listen.call(null, new cljs.core.Keyword(null, "on-click", "on-click", 1632826543), function(map__7575, map__7575__$1, travel_dates) {
+  kioo.om.listen.call(null, new cljs.core.Keyword(null, "on-click", "on-click", 1632826543), function(map__9411, map__9411__$1, travel_dates) {
     return function(e) {
       e.preventDefault();
-      return om.core.transact_BANG_.call(null, travel_dates, function(map__7575, map__7575__$1, travel_dates) {
-        return function(p1__7569_SHARP_) {
-          return cljs.core.conj.call(null, p1__7569_SHARP_, schengencalc.core.init_travel_dates.call(null));
+      return om.core.transact_BANG_.call(null, travel_dates, function(map__9411, map__9411__$1, travel_dates) {
+        return function(p1__9405_SHARP_) {
+          return cljs.core.conj.call(null, p1__9405_SHARP_, schengencalc.core.init_travel_dates.call(null));
         };
-      }(map__7575, map__7575__$1, travel_dates));
+      }(map__9411, map__9411__$1, travel_dates));
     };
-  }(map__7575, map__7575__$1, travel_dates)).call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "tag", "tag", -1290361223), new cljs.core.Keyword(null, "a", "a", -2123407586), new cljs.core.Keyword(null, "attrs", "attrs", -2090668713), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), null, new cljs.core.Keyword(null, "style", "style", -496642736), null], null), new cljs.core.Keyword(null, "content", "content", 
+  }(map__9411, map__9411__$1, travel_dates)).call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "tag", "tag", -1290361223), new cljs.core.Keyword(null, "a", "a", -2123407586), new cljs.core.Keyword(null, "attrs", "attrs", -2090668713), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), null, new cljs.core.Keyword(null, "style", "style", -496642736), null], null), new cljs.core.Keyword(null, "content", "content", 
   15833224), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.apply.call(null, om.dom.i, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "fi-plus", new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, cljs.core.PersistentVector.EMPTY)), " Add a stay"], null)), new cljs.core.Keyword(null, 
   "sym", "sym", -1444860305), om.dom.a], null))), "\n          "], null))), "\n\n          ", cljs.core.apply.call(null, om.dom.div, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "results-area", new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 9, 5, cljs.core.PersistentVector.EMPTY_NODE, ["\n            ", 
   cljs.core.apply.call(null, om.dom.h2, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), null, new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["Results"], null))), "\n            ", kioo.core.handle_wrapper.call(null, kioo.om.make_dom).call(null, (cljs.core.every_QMARK_.call(null, 
-  function(map__7575, map__7575__$1, travel_dates) {
-    return function(p1__7571_SHARP_) {
-      return(new cljs.core.Keyword(null, "days-left", "days-left", 145761870)).cljs$core$IFn$_invoke$arity$1(p1__7571_SHARP_) >= 0;
+  function(map__9411, map__9411__$1, travel_dates) {
+    return function(p1__9407_SHARP_) {
+      return(new cljs.core.Keyword(null, "days-left", "days-left", 145761870)).cljs$core$IFn$_invoke$arity$1(p1__9407_SHARP_) >= 0;
     };
-  }(map__7575, map__7575__$1, travel_dates), schengencalc.dates.re_entry_dates.call(null, travel_dates)) ? kioo.om.do__GT_.call(null, kioo.om.set_class.call(null, "disclaimer ok"), kioo.om.content.call(null, "This schedule is ok!")) : kioo.om.do__GT_.call(null, kioo.om.set_class.call(null, "disclaimer warn"), kioo.om.content.call(null, "This schedule violates Schengen Visa rules!"))).call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "tag", "tag", -1290361223), new cljs.core.Keyword(null, 
+  }(map__9411, map__9411__$1, travel_dates), schengencalc.dates.re_entry_dates.call(null, travel_dates)) ? kioo.om.do__GT_.call(null, kioo.om.set_class.call(null, "disclaimer ok"), kioo.om.content.call(null, "This schedule is ok!")) : kioo.om.do__GT_.call(null, kioo.om.set_class.call(null, "disclaimer warn"), kioo.om.content.call(null, "This schedule violates Schengen Visa rules!"))).call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "tag", "tag", -1290361223), new cljs.core.Keyword(null, 
   "p", "p", 151049309), new cljs.core.Keyword(null, "attrs", "attrs", -2090668713), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "disclaimer", new cljs.core.Keyword(null, "style", "style", -496642736), null], null), new cljs.core.Keyword(null, "content", "content", 15833224), kioo.util.flatten_nodes.call(null, cljs.core.PersistentVector.EMPTY), new cljs.core.Keyword(null, "sym", "sym", -1444860305), om.dom.p], null))), "\n            ", 
-  kioo.core.handle_wrapper.call(null, kioo.om.make_dom).call(null, kioo.om.content.call(null, cljs.core.map.call(null, schengencalc.core.result_item, cljs.core.filter.call(null, function(map__7575, map__7575__$1, travel_dates) {
-    return function(p1__7570_SHARP_) {
-      return(new cljs.core.Keyword(null, "days-left", "days-left", 145761870)).cljs$core$IFn$_invoke$arity$1(p1__7570_SHARP_) < 0;
+  kioo.core.handle_wrapper.call(null, kioo.om.make_dom).call(null, kioo.om.content.call(null, cljs.core.map.call(null, schengencalc.core.result_item, cljs.core.filter.call(null, function(map__9411, map__9411__$1, travel_dates) {
+    return function(p1__9406_SHARP_) {
+      return(new cljs.core.Keyword(null, "days-left", "days-left", 145761870)).cljs$core$IFn$_invoke$arity$1(p1__9406_SHARP_) < 0;
     };
-  }(map__7575, map__7575__$1, travel_dates), schengencalc.dates.re_entry_dates.call(null, travel_dates)))).call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "tag", "tag", -1290361223), new cljs.core.Keyword(null, "ul", "ul", -1349521403), new cljs.core.Keyword(null, "attrs", "attrs", -2090668713), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "results", new cljs.core.Keyword(null, "style", "style", -496642736), 
+  }(map__9411, map__9411__$1, travel_dates), schengencalc.dates.re_entry_dates.call(null, travel_dates)))).call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "tag", "tag", -1290361223), new cljs.core.Keyword(null, "ul", "ul", -1349521403), new cljs.core.Keyword(null, "attrs", "attrs", -2090668713), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "results", new cljs.core.Keyword(null, "style", "style", -496642736), 
   null], null), new cljs.core.Keyword(null, "content", "content", 15833224), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, ["\n                ", cljs.core.apply.call(null, om.dom.li, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "stay-tpl", new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, 
   new cljs.core.PersistentVector(null, 7, 5, cljs.core.PersistentVector.EMPTY_NODE, ["\n                  Between ", cljs.core.apply.call(null, om.dom.span, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "start", new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["August 12, 2014"], 
   null))), "\n                  and ", cljs.core.apply.call(null, om.dom.span, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), "end", new cljs.core.Keyword(null, "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["December 14, 2014"], null))), ", you will stay for\n                  ", cljs.core.apply.call(null, 
@@ -37622,50 +37622,53 @@ schengencalc.core.main = function main(p__7573) {
   "className", "className", -1983287057), null, new cljs.core.Keyword(null, "style", "style", -496642736), null, new cljs.core.Keyword(null, "src", "src", -1651076051), "main.js"], null)), kioo.util.flatten_nodes.call(null, cljs.core.PersistentVector.EMPTY)), "\n    "], null))), "\n\n    ", cljs.core.apply.call(null, om.dom.script, cljs.core.clj__GT_js.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "className", "className", -1983287057), null, new cljs.core.Keyword(null, 
   "style", "style", -496642736), null], null)), kioo.util.flatten_nodes.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["\n        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']\x3dr;i[r]\x3di[r]||function(){\n                (i[r].q\x3di[r].q||[]).push(arguments)},i[r].l\x3d1*new Date();a\x3ds.createElement(o),\n            m\x3ds.getElementsByTagName(o)[0];a.async\x3d1;a.src\x3dg;m.parentNode.insertBefore(a,m)\n        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');\n\n        ga('create', 'UA-3525624-31', 'auto');\n        ga('send', 'pageview');\n\n    "], 
   null))), "\n  "], null));
-  if (cljs.core._EQ_.call(null, 1, cljs.core.count.call(null, ch7572))) {
-    return cljs.core.first.call(null, ch7572);
+  if (cljs.core._EQ_.call(null, 1, cljs.core.count.call(null, ch9408))) {
+    return cljs.core.first.call(null, ch9408);
   } else {
-    return cljs.core.apply.call(null, om.dom.span, null, ch7572);
+    return cljs.core.apply.call(null, om.dom.span, null, ch9408);
   }
 };
 schengencalc.core.app_state = cljs.core.atom.call(null, schengencalc.core.fetch.call(null, "schengencalc", new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "travel-dates", "travel-dates", -960218385), cljs.core.PersistentVector.EMPTY], null)));
 schengencalc.core.app = function app(data, owner) {
   schengencalc.core.store.call(null, "schengencalc", data);
-  if (typeof schengencalc.core.t7579 !== "undefined") {
+  if (typeof schengencalc.core.t9415 !== "undefined") {
   } else {
-    schengencalc.core.t7579 = function(owner, data, app, meta7580) {
+    schengencalc.core.t9415 = function(owner, data, app, meta9416) {
       this.owner = owner;
       this.data = data;
       this.app = app;
-      this.meta7580 = meta7580;
+      this.meta9416 = meta9416;
       this.cljs$lang$protocol_mask$partition1$ = 0;
       this.cljs$lang$protocol_mask$partition0$ = 393216;
     };
-    schengencalc.core.t7579.cljs$lang$type = true;
-    schengencalc.core.t7579.cljs$lang$ctorStr = "schengencalc.core/t7579";
-    schengencalc.core.t7579.cljs$lang$ctorPrWriter = function(this__4110__auto__, writer__4111__auto__, opt__4112__auto__) {
-      return cljs.core._write.call(null, writer__4111__auto__, "schengencalc.core/t7579");
+    schengencalc.core.t9415.cljs$lang$type = true;
+    schengencalc.core.t9415.cljs$lang$ctorStr = "schengencalc.core/t9415";
+    schengencalc.core.t9415.cljs$lang$ctorPrWriter = function(this__4110__auto__, writer__4111__auto__, opt__4112__auto__) {
+      return cljs.core._write.call(null, writer__4111__auto__, "schengencalc.core/t9415");
     };
-    schengencalc.core.t7579.prototype.om$core$IRender$ = true;
-    schengencalc.core.t7579.prototype.om$core$IRender$render$arity$1 = function(this__6556__auto__) {
+    schengencalc.core.t9415.prototype.om$core$IRender$ = true;
+    schengencalc.core.t9415.prototype.om$core$IRender$render$arity$1 = function(this__6556__auto__) {
       var self__ = this;
       var this__6556__auto____$1 = this;
       return schengencalc.core.main.call(null, self__.data);
     };
-    schengencalc.core.t7579.prototype.cljs$core$IMeta$_meta$arity$1 = function(_7581) {
+    schengencalc.core.t9415.prototype.cljs$core$IMeta$_meta$arity$1 = function(_9417) {
       var self__ = this;
-      var _7581__$1 = this;
-      return self__.meta7580;
+      var _9417__$1 = this;
+      return self__.meta9416;
     };
-    schengencalc.core.t7579.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(_7581, meta7580__$1) {
+    schengencalc.core.t9415.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(_9417, meta9416__$1) {
       var self__ = this;
-      var _7581__$1 = this;
-      return new schengencalc.core.t7579(self__.owner, self__.data, self__.app, meta7580__$1);
+      var _9417__$1 = this;
+      return new schengencalc.core.t9415(self__.owner, self__.data, self__.app, meta9416__$1);
     };
-    schengencalc.core.__GT_t7579 = function __GT_t7579(owner__$1, data__$1, app__$1, meta7580) {
-      return new schengencalc.core.t7579(owner__$1, data__$1, app__$1, meta7580);
+    schengencalc.core.__GT_t9415 = function __GT_t9415(owner__$1, data__$1, app__$1, meta9416) {
+      return new schengencalc.core.t9415(owner__$1, data__$1, app__$1, meta9416);
     };
   }
-  return new schengencalc.core.t7579(owner, data, app, null);
+  return new schengencalc.core.t9415(owner, data, app, null);
 };
 om.core.root.call(null, schengencalc.core.app, schengencalc.core.app_state, new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "target", "target", 253001721), document.body], null));
+schengencalc.core.on_reload = function on_reload() {
+  return console.log("RELOAD");
+};

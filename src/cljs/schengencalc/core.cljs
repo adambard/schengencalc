@@ -119,3 +119,7 @@
 
 
 (om/root app app-state {:target (.-body js/document)})
+
+(defn on-reload []
+  (js/console.log "RELOAD")
+  )

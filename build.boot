@@ -28,7 +28,6 @@
 (deftask dev []
  (comp (serve :dir "target/")
   (watch)
-  (speak)
   (reload :on-jsload 'schengencalc.core/on-reload)
   (cljs-repl)
   (copy :output-dir "target" :matching #{#"resources/*"})
